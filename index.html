@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vincent Cheng - Computer Engineer</title>
+  <meta name="description" content="Vincent Cheng. Computer Engineering at Toronto Metropolitan University, SerDes PHY validation at AMD, ScopeChat and SignBridge.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vincent Cheng">
+  <meta property="og:description" content="Computer Engineering at Toronto Metropolitan University. Available for full-time roles in 2027.">
+  <meta property="og:image" content="assets/img/scopechat-award.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Apple's site uses SF Pro. Apple devices get the real thing through -apple-system;
+       everywhere else falls back to Inter, the closest freely licensed match. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-logo" viewBox="0 0 48 48">
+      <g stroke="currentColor" stroke-width="2.4" stroke-linecap="square" fill="none">
+        <path d="M17 3.5v5M24 3.5v5M31 3.5v5M17 39.5v5M24 39.5v5M31 39.5v5M3.5 17h5M3.5 24h5M3.5 31h5M39.5 17h5M39.5 24h5M39.5 31h5"/>
+        <rect x="10" y="10" width="28" height="28" rx="2.5" stroke-width="2.6"/>
+        <path d="M14.3 18.5 18.3 29.5 22.3 18.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M33.2 19.9a5.6 5.6 0 1 0 0 7.8" stroke-linecap="round"/>
+      </g>
+      <circle cx="14" cy="14" r="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15.5h6"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M5 9h14M5 15h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.4v14H7zM13.6 5H17v14h-3.4z" fill="currentColor"/></symbol>
+  </svg>
+
+  <a class="skip" href="#overview">Skip to content</a>
+
+  <!-- ============ Global nav ============ -->
+  <nav class="gnav" id="gnav" aria-label="Global">
+    <div class="gnav-inner">
+      <a class="gnav-logo" href="#top" aria-label="Vincent Cheng">
+        <svg aria-hidden="true"><use href="#i-logo"/></svg>
+      </a>
+      <ul class="gnav-links" id="gnav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#signbridge">Projects</a></li>
+        <li><a href="#specs">Tech Specs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="gnav-tools">
+        <a class="gnav-icon" href="assets/Vincent_Cheng_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF)">
+          <svg aria-hidden="true"><use href="#i-doc"/></svg>
+        </a>
+        <button class="gnav-icon gnav-menu" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+          <svg aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ Product (local) nav ============ -->
+  <nav class="lnav" id="lnav" aria-label="Vincent Cheng">
+    <div class="lnav-inner">
+      <a class="lnav-title" href="#top">Vincent Cheng</a>
+      <div class="lnav-right">
+        <button class="lnav-toggle" type="button" aria-expanded="false" aria-controls="lnav-menu" aria-label="Sections">
+          <svg aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="lnav-menu" id="lnav-menu">
+          <a href="#overview">Overview</a>
+          <a href="#experience">Experience</a>
+          <a href="#specs">Tech Specs</a>
+        </div>
+        <a class="btn btn-sm" href="#contact">Hire</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <!-- Drop your SignBridge recording at assets/video/signbridge-hero.mp4 and it
+         replaces the still automatically. Adjust --hero-focus in css/style.css if the
+         framing needs to shift. -->
+    <section class="hero" id="top" aria-label="Vincent Cheng">
+      <div class="hero-sticky">
+        <div class="hero-media">
+          <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+                 poster="assets/img/signbridge-hero-poster.jpg"
+                 aria-label="Vincent testing SignBridge, his sign language recognition system">
+            <source src="assets/video/signbridge-hero.mp4" type="video/mp4">
+          </video>
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <h1 class="hero-title">Vincent Cheng</h1>
+            <p class="hero-tagline">Computer Engineering at Toronto Metropolitan University.</p>
+            <div class="hero-ctas">
+              <a class="btn" href="#contact">Hire</a>
+              <a class="link" href="#overview">Learn more</a>
+            </div>
+            <p class="hero-price">Available for full-time roles in 2027.<a class="fn" href="#fn-1">1</a></p>
+          </div>
+          <button class="media-toggle" type="button" aria-label="Pause video">
+            <svg class="ico-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+            <svg class="ico-play" aria-hidden="true"><use href="#i-play"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Intro ============ -->
+    <section class="intro" id="overview">
+      <div class="wrap">
+        <p class="intro-lede" data-words>
+          <span class="lede-line">Meet Vincent Cheng.</span>
+          <span class="lede-line">Computer Engineer. Hardware Validation. AI/ML. Digital Systems.</span>
+          <span class="lede-line lede-detail">A Computer Engineering student who works where hardware meets software: validating high‑speed PHYs on real silicon, designing digital systems from the gates up, and building AI tools like an oscilloscope you can talk to and a model that reads sign language.</span>
+          <em class="lede-line">Passionate about building things.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Highlights ============ -->
+    <!-- The section pins in place and scrolling down slides through the cards.
+         Add or remove <li class="gcard"> items freely; the scroll length adapts. -->
+    <section class="highlights" id="highlights" aria-labelledby="hl-title">
+      <div class="hl-sticky">
+        <div class="wrap">
+          <h2 class="section-head reveal" id="hl-title">Get the highlights.</h2>
+        </div>
+        <div class="gallery" id="gallery" tabindex="0" aria-label="Highlights">
+          <ul class="gallery-track">
+            <li class="gcard">
+              <img src="assets/img/scopechat-award.jpg" alt="Vincent holding the award with four judges in front of the Intern Innovation Showcase screen" style="object-position:50% 45%">
+              <p class="gcard-copy">Winner of the AMD Intern Innovation Event, with&nbsp;ScopeChat.</p>
+            </li>
+            <li class="gcard">
+              <img src="assets/img/signbridge-hero-poster.jpg" alt="SignBridge recognizing the sign THANKYOU at 0.96 confidence with hand and body landmarks overlaid" style="object-position:50% 10%">
+              <p class="gcard-copy">Reads 27 ASL signs. 92% accurate on signers it has never&nbsp;seen.<a class="fn" href="#fn-2">2</a></p>
+            </li>
+            <li class="gcard gcard-eye">
+              <svg class="eye" data-eye="90" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <p class="gcard-copy">Sixteen months validating USB, PCIe and DisplayPort PHYs at&nbsp;AMD.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="gallery-nav">
+          <div class="dots" id="dots" role="group" aria-label="Choose a highlight"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Experience / chip ============ -->
+    <section class="chip-sec" id="experience">
+      <div class="wrap center">
+        <div class="chip-visual reveal" aria-hidden="true">
+          <svg viewBox="0 0 320 320">
+            <defs>
+              <linearGradient id="chip-edge" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f5f5f7"/><stop offset=".45" stop-color="#5b5b62"/><stop offset=".7" stop-color="#d9d9de"/><stop offset="1" stop-color="#3a3a3f"/>
+              </linearGradient>
+              <linearGradient id="chip-body" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#232326"/><stop offset="1" stop-color="#0a0a0b"/>
+              </linearGradient>
+              <linearGradient id="chip-text" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#b69cff"/>
+              </linearGradient>
+            </defs>
+            <g fill="#4a4a50">
+              <rect x="86" y="18" width="8" height="22" rx="2"/><rect x="110" y="18" width="8" height="22" rx="2"/><rect x="134" y="18" width="8" height="22" rx="2"/><rect x="158" y="18" width="8" height="22" rx="2"/><rect x="182" y="18" width="8" height="22" rx="2"/><rect x="206" y="18" width="8" height="22" rx="2"/><rect x="230" y="18" width="8" height="22" rx="2"/>
+              <rect x="86" y="280" width="8" height="22" rx="2"/><rect x="110" y="280" width="8" height="22" rx="2"/><rect x="134" y="280" width="8" height="22" rx="2"/><rect x="158" y="280" width="8" height="22" rx="2"/><rect x="182" y="280" width="8" height="22" rx="2"/><rect x="206" y="280" width="8" height="22" rx="2"/><rect x="230" y="280" width="8" height="22" rx="2"/>
+              <rect x="18" y="86" width="22" height="8" rx="2"/><rect x="18" y="110" width="22" height="8" rx="2"/><rect x="18" y="134" width="22" height="8" rx="2"/><rect x="18" y="158" width="22" height="8" rx="2"/><rect x="18" y="182" width="22" height="8" rx="2"/><rect x="18" y="206" width="22" height="8" rx="2"/><rect x="18" y="230" width="22" height="8" rx="2"/>
+              <rect x="280" y="86" width="22" height="8" rx="2"/><rect x="280" y="110" width="22" height="8" rx="2"/><rect x="280" y="134" width="22" height="8" rx="2"/><rect x="280" y="158" width="22" height="8" rx="2"/><rect x="280" y="182" width="22" height="8" rx="2"/><rect x="280" y="206" width="22" height="8" rx="2"/><rect x="280" y="230" width="22" height="8" rx="2"/>
+            </g>
+            <rect x="38" y="38" width="244" height="244" rx="30" fill="url(#chip-body)" stroke="url(#chip-edge)" stroke-width="3"/>
+            <rect x="58" y="58" width="204" height="204" rx="18" fill="#0c0c0d" stroke="#2c2c30"/>
+            <use href="#i-logo" x="112" y="96" width="96" height="96" color="#a9bdff"/>
+            <text x="160" y="228" text-anchor="middle" class="chip-pro" fill="#a1a1a6">PRO</text>
+          </svg>
+        </div>
+        <p class="eyebrow grad-chip reveal">AMD · May 2025 – Aug 2026</p>
+        <h2 class="headline reveal">Hardware validation.<br>Down to the silicon.</h2>
+        <p class="section-copy reveal">For sixteen months as a <strong>SerDes PHY Hardware Validation Engineer Intern at AMD</strong>, Vincent helped integrate and validate third‑party <strong>USB, PCIe and DisplayPort PHY IP</strong> on AMD SoCs, from pre‑silicon development all the way to <strong>post‑silicon debug</strong> on the bench.</p>
+      </div>
+
+      <div class="wrap stats reveal">
+        <div class="stat"><p class="stat-num grad-chip">16 months</p><p class="stat-cap">of SerDes PHY hardware validation</p></div>
+        <div class="stat"><p class="stat-num grad-chip">AI tools</p><p class="stat-cap">for signal integrity analysis and automation, adopted by the team</p></div>
+        <div class="stat"><p class="stat-num grad-chip">Pre + post</p><p class="stat-cap">silicon, from bring‑up to bench debug</p></div>
+      </div>
+
+      <div class="wrap-wide bento">
+        <article class="tile tile-wide tile-eye reveal">
+          <p><strong>Eye diagrams, on the bench.</strong> Board bring‑up and post‑silicon validation with oscilloscopes and lab equipment, capturing eye diagrams and receiver lane margining data to verify compliance with design specs.</p>
+          <svg class="eye eye-tile" data-eye="60" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true"></svg>
+        </article>
+        <article class="tile reveal" style="--d:.08s">
+          <p><strong>AI tools the team actually uses.</strong> An LLM‑based signal integrity report analysis tool, plus workflow automation adopted by the team for PHY debug.</p>
+        </article>
+        <article class="tile reveal">
+          <p><strong>Root cause. Found.</strong> Led a signal integrity investigation with an external IP vendor, isolated a link failure through controlled experiments, then validated the firmware fix on silicon.</p>
+        </article>
+        <article class="tile reveal" style="--d:.08s">
+          <p><strong>Python and C, down to the register.</strong> Scripts for PHY register access and configuration across Windows and Linux, supporting USB and display link validation.</p>
+        </article>
+        <article class="tile reveal" style="--d:.16s">
+          <p><strong>Firmware, encrypted.</strong> Developed and ran the firmware encryption process for USB, display and PCIe IP across the 3PIP team, so it could be integrated onto SoCs securely.</p>
+        </article>
+      </div>
+
+      <div class="wrap center">
+        <ul class="chips reveal" aria-label="Tools used at AMD">
+          <li>Python</li><li>C</li><li>C++</li><li>Linux</li><li>Oscilloscopes</li><li>BERTs</li><li>Jenkins</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SignBridge / camera ============ -->
+    <section class="cam-sec" id="signbridge">
+      <div class="wrap center">
+        <p class="eyebrow grad-cam reveal">SignBridge · Engineering Capstone</p>
+        <h2 class="headline reveal">A camera system<br>that reads sign language.</h2>
+        <p class="section-copy reveal">SignBridge is the recognition half of a capstone <strong>AI communication kiosk</strong>. MediaPipe hand and body‑pose landmarks go in. <strong>One of 27 ASL signs</strong> comes out, with calibrated confidence so the kiosk knows when to ask “Did you mean…?”</p>
+      </div>
+
+      <figure class="viewfinder reveal">
+        <div class="vf-phone">
+          <div class="vf-screen">
+            <div class="vf-side vf-left" aria-hidden="true"><span class="vf-island"></span></div>
+            <div class="vf-view">
+              <!-- Swap for a new still or clip any time -->
+              <img src="assets/img/signbridge-hero-poster.jpg" alt="Live recognition window showing the sign THANKYOU detected at 0.96 confidence with hand and body landmarks overlaid" loading="lazy">
+              <span class="vf-badge" aria-hidden="true">ASL</span>
+            </div>
+            <div class="vf-side vf-right" aria-hidden="true">
+              <ul class="vf-modes"><li>VIDEO</li><li class="on">SIGN</li><li>PHOTO</li></ul>
+              <span class="vf-shutter"></span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="caption">Live recognition: THANKYOU at 0.96 confidence, hand and body landmarks overlaid.</figcaption>
+      </figure>
+
+      <div class="wrap stats stats-4 reveal">
+        <div class="stat"><p class="stat-num grad-cam">92%</p><p class="stat-cap">accuracy on held‑out signers<a class="fn" href="#fn-2">2</a></p></div>
+        <div class="stat"><p class="stat-num grad-cam">27</p><p class="stat-cap">ASL signs recognized</p></div>
+        <div class="stat"><p class="stat-num grad-cam">750+</p><p class="stat-cap">signer videos processed</p></div>
+        <div class="stat"><p class="stat-num grad-cam">2.1×</p><p class="stat-cap">faster training with multiprocessing</p></div>
+      </div>
+
+      <div class="wrap-wide bento bento-2">
+        <article class="tile reveal">
+          <p><strong>Signer‑centred.</strong> Body‑relative location features in a signer‑centred coordinate frame, fed to a PyTorch GRU sequence model with on‑the‑fly time warping, rotation and landmark jitter.</p>
+        </article>
+        <article class="tile reveal" style="--d:.08s">
+          <p><strong>Two models. One answer.</strong> A temperature‑calibrated ensemble of a Random Forest and the GRU reaches 92% accuracy on signers it never trained on.</p>
+        </article>
+        <article class="tile reveal">
+          <p><strong>Knows when to ask.</strong> Confidence‑based abstention cuts errors on the predictions it does accept, so the kiosk can check before it answers.</p>
+        </article>
+        <article class="tile reveal" style="--d:.08s">
+          <p><strong>Honest numbers.</strong> Signer‑disjoint evaluation, multi‑seed runs and paired t‑tests caught a 4‑point optimistic bias in early results.</p>
+        </article>
+      </div>
+
+      <div class="wrap center">
+        <ul class="chips reveal" aria-label="SignBridge stack">
+          <li>Python</li><li>PyTorch</li><li>scikit-learn</li><li>MediaPipe</li><li>OpenCV</li><li>NumPy</li>
+        </ul>
+        <p class="reveal"><a class="link" href="https://github.com/VincentBot88/signbridge-sign-recognition" target="_blank" rel="noopener">View SignBridge on GitHub</a></p>
+      </div>
+    </section>
+
+    <!-- ============ ScopeChat / intelligence ============ -->
+    <section class="ai-sec" id="scopechat">
+      <div class="wrap center">
+        <p class="eyebrow grad-ai reveal">ScopeChat · Winner, AMD Intern Innovation Event</p>
+        <h2 class="headline headline-xl grad-ai reveal">Hello, ScopeChat.</h2>
+        <p class="section-copy reveal">An AI‑powered CLI that lets you <strong>ask an oscilloscope for what you want</strong> instead of hunting through menus and SCPI manuals. LLM function calling turns plain English into <strong>structured instrument commands</strong> for measurements, signal quality analysis and eye diagram setup.</p>
+      </div>
+
+      <div class="wrap">
+        <div class="ai-term reveal">
+          <div class="term-bar">
+            <span class="tl" style="--c:#ff5f57"></span><span class="tl" style="--c:#febc2e"></span><span class="tl" style="--c:#28c840"></span>
+            <span class="term-title">scopechat — mock mode</span>
+            <button class="term-replay" type="button">Replay</button>
+          </div>
+          <pre class="term-body" id="term"><span class="t-p">scopechat&gt;</span> set up an eye diagram on channel 2
+<span class="t-f">  ƒ setup_eye_diagram(channel=2, data_rate="auto")</span>
+<span class="t-o">  SCPI → :MEASure:EYE:STATe ON</span>
+<span class="t-o">  SCPI → :MEASure:EYE:HEIGht?</span>
+<span class="t-i">  SCPI ← +1.7240e-1</span>
+<span class="t-o">  SCPI → :MEASure:EYE:WIDTh?</span>
+<span class="t-i">  SCPI ← +2.1180e-11</span>
+<span class="t-s">Eye diagram running on channel 2. Eye height 172.4 mV, eye width 21.18 ps.</span>
+
+<span class="t-p">scopechat&gt;</span> what's the peak to peak on ch1
+<span class="t-f">  ƒ measure(channel=1, kind="vpp")</span>
+<span class="t-o">  SCPI → :MEASure:VPP? CHANnel1</span>
+<span class="t-i">  SCPI ← +8.0410e-1</span>
+<span class="t-s">Channel 1 peak-to-peak is 804.1 mV.</span></pre>
+        </div>
+        <p class="caption center">Mock instrument, canned responses.<a class="fn" href="#fn-4">4</a> The real thing talks to hardware over PyVISA.</p>
+      </div>
+
+      <div class="wrap trio">
+        <p class="reveal"><strong>Function calling.</strong> Questions become structured tool calls, tool calls become SCPI, SCPI becomes an answer.</p>
+        <p class="reveal" style="--d:.08s"><strong>Modular by design.</strong> The CLI, the LLM interface and instrument control are separate layers.</p>
+        <p class="reveal" style="--d:.16s"><strong>Mock mode.</strong> Develop and test without an oscilloscope on the desk.</p>
+      </div>
+
+      <div class="wrap-wide duo">
+        <figure class="reveal">
+          <img src="assets/img/scopechat-presenting.jpg" alt="Vincent presenting ScopeChat on stage in front of three screens" loading="lazy">
+          <figcaption class="caption">Presenting ScopeChat at the AMD 2026 Intern Innovation Showcase.</figcaption>
+        </figure>
+        <figure class="reveal" style="--d:.08s">
+          <img src="assets/img/scopechat-award.jpg" alt="Vincent holding the award with four judges in front of the Intern Innovation Showcase screen" loading="lazy">
+          <figcaption class="caption">Winner, AMD Intern Innovation Event.</figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap center">
+        <ul class="chips reveal" aria-label="ScopeChat stack">
+          <li>Python</li><li>OpenAI API</li><li>PyVISA</li><li>Typer</li><li>Rich</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Lineup (other projects) ============ -->
+    <section class="light lineup" id="lineup">
+      <div class="wrap">
+        <h2 class="section-head reveal">Also in the lineup.</h2>
+      </div>
+      <div class="wrap-wide lineup-grid">
+        <article class="card reveal">
+          <!-- Placeholder art. Replace with <img src="assets/img/processor-fpga.jpg" alt="…"> -->
+          <div class="card-art art-seg" aria-hidden="true">
+            <svg viewBox="0 0 150 120">
+              <g transform="translate(14 10)">
+                <rect class="off" x="8" y="0" width="40" height="8" rx="4"/><rect class="on" x="8" y="0" width="40" height="8" rx="4"/>
+                <rect class="on" x="48" y="8" width="8" height="40" rx="4"/>
+                <rect class="off" x="48" y="56" width="8" height="40" rx="4"/>
+                <rect class="on" x="8" y="96" width="40" height="8" rx="4"/>
+                <rect class="on" x="0" y="56" width="8" height="40" rx="4"/>
+                <rect class="off" x="0" y="8" width="8" height="40" rx="4"/>
+                <rect class="on" x="8" y="48" width="40" height="8" rx="4"/>
+              </g>
+              <g transform="translate(80 10)">
+                <rect class="on" x="8" y="0" width="40" height="8" rx="4"/>
+                <rect class="on" x="48" y="8" width="8" height="40" rx="4"/>
+                <rect class="on" x="48" y="56" width="8" height="40" rx="4"/>
+                <rect class="off" x="8" y="96" width="40" height="8" rx="4"/>
+                <rect class="off" x="0" y="56" width="8" height="40" rx="4"/>
+                <rect class="off" x="0" y="8" width="8" height="40" rx="4"/>
+                <rect class="off" x="8" y="48" width="40" height="8" rx="4"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <p class="card-kind">Digital Design / FPGA</p>
+            <h3>General‑Purpose Processor</h3>
+            <p class="card-tag">A simple CPU in VHDL, running on an FPGA.</p>
+            <p class="card-copy">An ALU, a control unit built on a finite state machine and a 4×16 decoder, driven by microcode, with results on seven‑segment displays.</p>
+            <ul class="chips chips-light"><li>VHDL</li><li>Quartus II</li><li>FPGA</li></ul>
+          </div>
+        </article>
+        <article class="card reveal" style="--d:.08s">
+          <!-- Placeholder art. Replace with <img src="assets/img/amplifier-bench.jpg" alt="…"> -->
+          <div class="card-art art-amp" aria-hidden="true">
+            <svg viewBox="0 0 300 140">
+              <defs>
+                <linearGradient id="amp-out" x1="0" x2="1"><stop offset="0" stop-color="#2997ff"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+              </defs>
+              <path class="amp-in" d="M10 70 Q 20 56 30 70 T 50 70 T 70 70 T 90 70"/>
+              <path class="amp-sym" d="M112 40 L112 100 L158 70 Z"/>
+              <path class="amp-wire" d="M90 70 H112 M158 70 H176"/>
+              <path class="amp-out" d="M176 70 Q 190 124 204 70 T 232 70 T 260 70 T 288 70"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <p class="card-kind">Analog Electronics</p>
+            <h3>Transistor Amplifier</h3>
+            <p class="card-tag">Single‑supply, multistage, inverting BJT amplifier.</p>
+            <p class="card-copy">Designed, simulated, built and tested, from hand calculations for resistance, capacitance and biasing to a verified circuit.</p>
+            <ul class="chips chips-light"><li>BJT</li><li>AC/DC Coupling</li><li>Circuit Simulation</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Tech specs ============ -->
+    <section class="white specs" id="specs">
+      <div class="wrap">
+        <h2 class="section-head reveal">Tech Specs</h2>
+        <dl class="spec-list">
+          <div class="spec reveal"><dt>Model</dt><dd><p class="spec-big">Vincent Cheng</p><p>Computer Engineer, Class of 2027</p></dd></div>
+          <div class="spec reveal"><dt>Experience</dt><dd><p class="spec-big">SerDes PHY Hardware Validation Engineer Intern</p><p>AMD, May 2025 – Aug 2026</p><p class="spec-big spec-gap">Front End Web Developer Intern</p><p>Anvil Business Center, Mar 2024 – Jul 2024</p><p>31% more user traffic through SEO<a class="fn" href="#fn-3">3</a></p></dd></div>
+          <div class="spec reveal"><dt>Education</dt><dd><p class="spec-big">BEng, Computer Engineering (Co‑op)</p><p>Toronto Metropolitan University, Toronto, ON</p><p>Sept 2022 – April 2027</p><p>Dean's List (2022 – 2025)</p></dd></div>
+          <div class="spec reveal"><dt>Languages</dt><dd><p>Python, C, C++, VHDL, SystemVerilog, Java, Perl, HTML, CSS, JavaScript, SQL</p></dd></div>
+          <div class="spec reveal"><dt>Lab &amp; Hardware</dt><dd><p>Oscilloscopes, BERTs, Waveform Generators, FPGA, Quartus II, Circuit Simulation</p></dd></div>
+          <div class="spec reveal"><dt>ML &amp; Data</dt><dd><p>PyTorch, scikit-learn, MediaPipe, OpenCV, NumPy, OpenAI API</p></dd></div>
+          <div class="spec reveal"><dt>Tooling</dt><dd><p>Git, GitHub, Jenkins, Linux, Perforce, VSCode, PyVISA, React.js, Bootstrap, Microsoft Office</p></dd></div>
+          <div class="spec reveal"><dt>Extracurricular</dt><dd><p>TorontoMet Robotics Team, Electrical Lead</p></dd></div>
+          <div class="spec reveal"><dt>Connectivity</dt><dd><p><a class="link link-light" href="mailto:vincentcheng1616@gmail.com">Email</a></p><p><a class="link link-light" href="https://linkedin.com/in/vincentcheng1618" target="_blank" rel="noopener">LinkedIn</a></p><p><a class="link link-light" href="https://github.com/VincentBot88" target="_blank" rel="noopener">GitHub</a></p></dd></div>
+          <div class="spec reveal"><dt>In the Box</dt><dd><p>Vincent Cheng</p><p><a class="link link-light" href="assets/Vincent_Cheng_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></p><p>USB‑C cable, fully validated<a class="fn" href="#fn-5">5</a></p></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="cta" id="contact">
+      <div class="wrap center">
+        <h2 class="headline headline-xl reveal"><span class="grad-pro">Hire Vincent Cheng.</span></h2>
+        <p class="section-copy reveal">Now taking interviews for <strong>full‑time roles</strong> in hardware validation, embedded systems and AI tooling.<a class="fn" href="#fn-1">1</a></p>
+        <div class="cta-row reveal">
+          <a class="btn" href="mailto:vincentcheng1616@gmail.com">Email Vincent</a>
+          <a class="btn btn-outline" href="assets/Vincent_Cheng_Resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+        </div>
+        <p class="cta-links reveal">
+          <a class="link" href="https://linkedin.com/in/vincentcheng1618" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="https://github.com/VincentBot88" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <ol class="footnotes">
+        <li id="fn-1">Available for full-time roles following graduation from Toronto Metropolitan University in April 2027. Final exams sold separately.</li>
+        <li id="fn-2">Accuracy measured on held-out signers using a signer-disjoint evaluation across multiple seeds. Results may vary with lighting, camera and how fast you sign.</li>
+        <li id="fn-3">Traffic increase measured at Anvil Business Center in 2024, following SEO work on the site.</li>
+        <li id="fn-4">ScopeChat demo shown in mock mode with canned instrument responses. No oscilloscopes were harmed.</li>
+        <li id="fn-5">Cable not actually included. The validation experience is.</li>
+      </ol>
+
+      <div class="crumbs">
+        <a href="#top" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-logo"/></svg></a>
+        <span aria-hidden="true">›</span>
+        <span>Vincent Cheng</span>
+      </div>
+
+      <div class="directory">
+        <div>
+          <h3>Explore Vincent</h3>
+          <ul><li><a href="#overview">Overview</a></li><li><a href="#experience">Experience at AMD</a></li><li><a href="#signbridge">SignBridge</a></li><li><a href="#scopechat">ScopeChat</a></li><li><a href="#lineup">More projects</a></li><li><a href="#specs">Tech Specs</a></li></ul>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul><li><a href="mailto:vincentcheng1616@gmail.com">Email</a></li><li><a href="https://linkedin.com/in/vincentcheng1618" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/VincentBot88" target="_blank" rel="noopener">GitHub</a></li><li><a href="assets/Vincent_Cheng_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li></ul>
+        </div>
+      </div>
+
+      <p class="more-ways">More ways to hire: <a href="mailto:vincentcheng1616@gmail.com">send an email</a> or <a href="https://linkedin.com/in/vincentcheng1618" target="_blank" rel="noopener">connect on LinkedIn</a>. Or find Vincent in the lab.</p>
+
+      <div class="legal">
+        <p>Copyright © 2026 Vincent Cheng. All rights reserved.</p>
+        <p>Toronto, Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
