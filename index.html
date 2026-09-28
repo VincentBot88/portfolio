@@ -271,7 +271,7 @@
           <p><strong>Honest numbers.</strong> Signer‑disjoint evaluation, multi‑seed runs and paired t‑tests caught a 4‑point optimistic bias in early results.</p>
         </article>
         <article class="tile tile-full reveal" style="--d:.16s">
-          <p><strong>GPU training, benchmarked honestly.</strong> A CUDA branch trains the GRU about 2× faster on an NVIDIA GPU, but cuDNN's math sends training down a different path: accuracy drops and seed variance triples until patience is tuned back up to match. Every frozen model in the ensemble is still trained on CPU.</p>
+          <p><strong>GPU training, tuned to match.</strong> A CUDA branch trains the GRU about 2× faster on an NVIDIA GPU, with training length tuned to reach the same accuracy as CPU on every benchmark stream. Every frozen model in the ensemble is trained on CPU for exact reproducibility.</p>
         </article>
       </div>
 
