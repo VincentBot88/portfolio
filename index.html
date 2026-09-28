@@ -99,7 +99,7 @@
           <div class="hero-shade" aria-hidden="true"></div>
           <div class="hero-copy">
             <h1 class="hero-title">Vincent Cheng</h1>
-            <p class="hero-tagline">Computer Engineering at Toronto Metropolitan University.</p>
+            <p class="hero-tagline">SerDes validation at AMD. AI tools on the side.</p>
             <div class="hero-ctas">
               <a class="btn" href="#contact">Hire</a>
               <a class="link" href="#overview">Learn more</a>
@@ -119,9 +119,7 @@
       <div class="wrap">
         <p class="intro-lede" data-words>
           <span class="lede-line">Meet Vincent Cheng.</span>
-          <span class="lede-line">Computer Engineer. Hardware Validation. AI/ML. Digital Systems.</span>
-          <span class="lede-line lede-detail">A Computer Engineering student who works where hardware meets software: validating high‑speed PHYs on real silicon, designing digital systems from the gates up, and building AI tools like an oscilloscope you can talk to and a model that reads sign language.</span>
-          <em class="lede-line">Passionate about building things.</em>
+          <span class="lede-line lede-detail">A Computer Engineering student passionate about hardware and software: validating high‑speed PHYs on silicon, designing digital systems from the gates up, and building AI tools like an oscilloscope you can talk to and a model that reads sign language.</span>
         </p>
       </div>
     </section>
@@ -195,6 +193,11 @@
         <div class="stat"><p class="stat-num grad-chip">Pre + post</p><p class="stat-cap">silicon, from bring‑up to bench debug</p></div>
       </div>
 
+      <figure class="team-photo wrap-wide reveal">
+        <img src="assets/img/amd-team.jpg" alt="Vincent with fellow AMD interns in front of a large AMD sign" loading="lazy">
+        <figcaption class="caption center">With fellow interns at AMD.</figcaption>
+      </figure>
+
       <div class="wrap-wide bento">
         <article class="tile tile-wide tile-eye reveal">
           <p><strong>Eye diagrams, on the bench.</strong> Board bring‑up and post‑silicon validation with oscilloscopes and lab equipment, capturing eye diagrams and receiver lane margining data to verify compliance with design specs.</p>
@@ -266,6 +269,9 @@
         </article>
         <article class="tile reveal" style="--d:.08s">
           <p><strong>Honest numbers.</strong> Signer‑disjoint evaluation, multi‑seed runs and paired t‑tests caught a 4‑point optimistic bias in early results.</p>
+        </article>
+        <article class="tile tile-full reveal" style="--d:.16s">
+          <p><strong>GPU training, benchmarked honestly.</strong> A CUDA branch trains the GRU about 2× faster on an NVIDIA GPU, but cuDNN's math sends training down a different path: accuracy drops and seed variance triples until patience is tuned back up to match. Every frozen model in the ensemble is still trained on CPU.</p>
         </article>
       </div>
 
