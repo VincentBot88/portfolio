@@ -185,9 +185,11 @@
   function update() {
     queued = false;
     const vh = innerHeight;
+    const heroRect = hero.getBoundingClientRect();
 
-    lnav.classList.toggle("is-stuck", scrollY >= gnav.offsetHeight);
+    // The floating product nav only appears once the hero has scrolled fully past.
     if (!lnav.classList.contains("open")) {
+      lnav.classList.toggle("is-visible", heroRect.bottom <= 0);
       const under = document.elementFromPoint(document.documentElement.clientWidth / 2, lnav.getBoundingClientRect().bottom + 1);
       lnav.classList.toggle("is-light", !!(under && under.closest(".light, .white, .footer")));
     }
@@ -196,10 +198,9 @@
       updateHighlights();
 
       // Hero: scale from full-bleed down to a rounded card over the sticky range.
-      const r = hero.getBoundingClientRect();
-      if (r.bottom > 0) {
+      if (heroRect.bottom > 0) {
         const range = hero.offsetHeight - sticky.offsetHeight;
-        const p = clamp((lnav.offsetHeight - r.top) / range);
+        const p = clamp(-heroRect.top / range);
         const s = 1 - 0.1 * p;
         media.style.setProperty("--p", p.toFixed(3));
         media.style.setProperty("--s", s.toFixed(4));
