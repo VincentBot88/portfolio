@@ -262,16 +262,16 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
   .hero-video { object-fit: contain; }
 }
 /* Wider windows: fit the whole recording (prediction bar included) to the hero's height,
-   pin it right and fade its camera view into the page so the copy sits on dark. */
+   center it and fade the camera view's side edges into the page. */
 @media (min-aspect-ratio: 4 / 3) {
   .hero-video {
-    display: block; margin-left: auto;
+    display: block; margin-inline: auto;
     width: min(100%, calc(max(100svh, 520px) * 802 / 598));
     /* Two layers, unioned: the camera fade over the whole frame, plus a gentler fade for the
        prediction bar. The bar layer stops at 18.5% because the bar ends at 18.9% (row 113 of
        598 is the light separator line), so no unfaded sliver of camera is left under it. */
-    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0, #000 20%), linear-gradient(90deg, transparent 0, #000 32%);
-            mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0, #000 20%), linear-gradient(90deg, transparent 0, #000 32%);
+    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0, #000 20%, #000 80%, rgba(0,0,0,.45) 100%), linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+            mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0, #000 20%, #000 80%, rgba(0,0,0,.45) 100%), linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%);
     -webkit-mask-size: 100% 18.5%, 100% 100%;
             mask-size: 100% 18.5%, 100% 100%;
     -webkit-mask-repeat: no-repeat;
@@ -291,12 +291,13 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
 }
 .hero-copy {
   position: absolute;
-  left: max(6.25%, calc((100% - 1080px) / 2));
+  /* Never further left than the recording's left edge (or the page gutter when the video fills the width) */
+  left: max(clamp(24px, 3vw, 56px), calc((100% - min(100%, max(100svh, 520px) * 802 / 598)) / 2));
   bottom: clamp(64px, 11vh, 128px);
   max-width: min(800px, 88%);
 }
 .hero-title {
-  font-size: clamp(56px, 7vw, 104px);
+  font-size: clamp(44px, min(4.6vw, 8.4svh), 128px);
   line-height: 1;
   font-weight: 600;
   letter-spacing: -0.025em;
@@ -308,11 +309,10 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
 }
 .hero-tagline {
   margin-top: 14px;
-  font-size: clamp(22px, 2.3vw, 32px);
+  font-size: clamp(18px, min(1.7vw, 3.1svh), 42px);
   line-height: 1.13; font-weight: 600; letter-spacing: .004em;
 }
-.hero-ctas { display: flex; align-items: center; gap: 28px; margin-top: 30px; }
-.hero-price { margin-top: 22px; font-size: 14px; color: #a1a1a6; letter-spacing: -0.016em; }
+.hero-ctas { display: flex; align-items: center; gap: 24px; margin-top: 22px; }
 
 .media-toggle {
   position: absolute; right: 24px; bottom: 24px;
@@ -475,13 +475,6 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
 
 /* ---------- Experience / chip ---------- */
 .chip-sec { padding: clamp(100px, 12vw, 160px) 0; }
-.chip-visual {
-  width: clamp(200px, 26vw, 300px); margin: 0 auto 56px;
-  filter: drop-shadow(0 0 60px rgba(96, 140, 255, .28)) drop-shadow(0 0 120px rgba(160, 110, 255, .18));
-}
-.chip-pro { font-family: var(--font); font-size: 19px; font-weight: 600; letter-spacing: 9px; }
-.js .chip-visual.reveal { transform: scale(.86); transition-duration: 1.4s; }
-.js .chip-visual.reveal.in { transform: none; }
 
 /* ---------- SignBridge / camera ---------- */
 .cam-sec { padding: clamp(100px, 12vw, 160px) 0; background: linear-gradient(#000, #050807 40%, #000); }
@@ -568,8 +561,9 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: clamp(56px, 7vw, 88px); }
 .duo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; }
 
-/* Full width, uncropped so a group photo never loses anyone off the edge */
-.team-photo { margin: clamp(48px, 6vw, 72px) auto clamp(56px, 7vw, 88px); }
+/* Uncropped so a group photo never loses anyone off the edge. Opens the AMD section. */
+/* 80% of the old width, min(87.5vw, 1080px) */
+.team-photo { width: min(70vw, 864px); margin: 0 auto 56px; }
 .team-photo img { width: 100%; display: block; border-radius: 28px; }
 
 /* ---------- Light sections ---------- */
@@ -743,7 +737,7 @@ section[id], main [id] { scroll-margin-top: var(--lnav-h); }
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js .reveal, .js .chip-visual.reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .hero-media { transform: none !important; clip-path: none !important; }
   .hero-video { filter: none; }
   .js .intro-lede .w { color: var(--text); }
