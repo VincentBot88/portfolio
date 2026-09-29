@@ -85,16 +85,16 @@
 
   <main>
     <!-- ============ Hero ============ -->
-    <!-- Drop your SignBridge recording at assets/video/signbridge-hero.mp4 and it
-         replaces the still automatically. Adjust --hero-focus in css/style.css if the
-         framing needs to shift. -->
+    <!-- Plays assets/video/signbridge-demo.mp4 (the same clip as the SignBridge
+         viewfinder below). Adjust --hero-focus in css/style.css if the framing needs
+         to shift. -->
     <section class="hero" id="top" aria-label="Vincent Cheng">
       <div class="hero-sticky">
         <div class="hero-media">
           <video class="hero-video" autoplay muted loop playsinline preload="metadata"
                  poster="assets/img/signbridge-hero-poster.jpg"
                  aria-label="Vincent testing SignBridge, his sign language recognition system">
-            <source src="assets/video/signbridge-hero.mp4" type="video/mp4">
+            <source src="assets/video/signbridge-demo.mp4" type="video/mp4">
           </video>
           <div class="hero-shade" aria-hidden="true"></div>
           <div class="hero-copy">
@@ -120,6 +120,7 @@
         <p class="intro-lede" data-words>
           <span class="lede-line">Meet Vincent Cheng.</span>
           <span class="lede-line lede-detail">A Computer Engineering student passionate about building hardware and software systems: validating high‑speed PHYs on silicon, developing scripts for characterization, building AI tools for automation and a model that reads sign language.</span>
+          <em class="lede-line">Driven by curiosity and learning.</em>
         </p>
       </div>
     </section>
@@ -237,8 +238,12 @@
           <div class="vf-screen">
             <div class="vf-side vf-left" aria-hidden="true"><span class="vf-island"></span></div>
             <div class="vf-view">
-              <!-- Swap for a new still or clip any time -->
-              <img src="assets/img/signbridge-hero-poster.jpg" alt="Live recognition window showing the sign THANKYOU detected at 0.96 confidence with hand and body landmarks overlaid" loading="lazy">
+              <!-- Swap the clip at assets/video/signbridge-demo.mp4 any time -->
+              <video class="vf-video" muted loop playsinline preload="metadata"
+                     poster="assets/img/signbridge-hero-poster.jpg"
+                     aria-label="Screen recording of SignBridge recognizing ASL signs live, with hand and body landmarks overlaid">
+                <source src="assets/video/signbridge-demo.mp4" type="video/mp4">
+              </video>
               <span class="vf-badge" aria-hidden="true">ASL</span>
             </div>
             <div class="vf-side vf-right" aria-hidden="true">
@@ -247,7 +252,7 @@
             </div>
           </div>
         </div>
-        <figcaption class="caption">Live recognition: THANKYOU at 0.96 confidence, hand and body landmarks overlaid.</figcaption>
+        <figcaption class="caption">SignBridge demo.</figcaption>
       </figure>
 
       <div class="wrap stats stats-4 reveal">

@@ -22,10 +22,10 @@ All text is written directly in [`index.html`](index.html), section by section.
 
 | What | Where |
 | --- | --- |
-| Hero video | Save it as `assets/video/signbridge-hero.mp4` (H.264 MP4, no audio needed, a 10–20 s loop, ideally under 10 MB). It replaces the still automatically. If the framing is off, change `--hero-focus` at the top of `css/style.css`. |
+| Hero video | `assets/video/signbridge-demo.mp4` (H.264 MP4, no audio needed, ideally under 10 MB), the same clip the SignBridge viewfinder plays. If the framing is off, change `--hero-focus` at the top of `css/style.css`. |
 | Hero still | `poster=` on the `<video>` in `index.html` (currently `signbridge-hero-poster.jpg`) |
 | Highlight cards | the `<li class="gcard">` items under "Get the highlights". Add or remove cards freely; the scroll length adapts. |
-| Camera viewfinder | the `<img>` inside `.vf-view` (4:3 works best) |
+| Camera viewfinder | the demo clip at `assets/video/signbridge-demo.mp4` (the `<video>` inside `.vf-view`, 4:3 works best). It plays muted on a loop while on screen. |
 | Processor / amplifier | replace each `<div class="card-art">` placeholder drawing with an `<img>` |
 
 Keep images around 1600 px on the long edge. iPhone HEIC photos need converting to JPG first.

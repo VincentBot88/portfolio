@@ -41,7 +41,6 @@
 
   const noVideo = () => hero.classList.add("no-video");
   video.querySelector("source").addEventListener("error", noVideo);
-  if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) noVideo();
 
   const showPaused = (paused) => {
     hero.classList.toggle("is-paused", paused);
@@ -61,6 +60,16 @@
     if (e.isIntersecting && !userPaused) video.play().catch(() => {});
     else if (!e.isIntersecting) video.pause();
   }).observe(hero);
+
+  /* ---------- SignBridge demo clip: plays only while on screen ---------- */
+  const demo = $(".vf-video");
+  if (demo) {
+    if (reduce) demo.controls = true;
+    else new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) demo.play().catch(() => {});
+      else demo.pause();
+    }, { threshold: 0.35 }).observe(demo);
+  }
 
   /* ---------- Intro: split into words ---------- */
   const lede = $("[data-words]");
@@ -207,10 +216,14 @@
         media.style.setProperty("--r", (28 * p / s).toFixed(2) + "px");
       }
 
-      // Intro: light words from 82% of the viewport until the paragraph's bottom hits the middle.
+      // Intro: light words from 82% of the viewport until the paragraph's top reaches where
+      // the "Overview" link scrolls it to (plus a little slack), so jumping there shows every word lit.
       if (words.length) {
         const lr = lede.getBoundingClientRect();
-        const p = clamp((vh * 0.82 - lr.top) / (vh * 0.32 + lr.height));
+        const cs = getComputedStyle(lede.closest(".intro"));
+        const anchorTop = parseFloat(cs.scrollMarginTop) + parseFloat(cs.paddingTop);
+        const endTop = anchorTop + 60;
+        const p = clamp((vh * 0.82 - lr.top) / Math.max(1, vh * 0.82 - endTop));
         const n = Math.round(p * words.length);
         if (n !== litCount) {
           litCount = n;
